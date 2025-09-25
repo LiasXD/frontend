@@ -11,13 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
+      - name: Deploy no gitHub pages
+        uses: peaceiris/actions-gh-page@v3
         with:
-          python-version: '3.11'
+          github_token{{ secrets.GITHUB_TOKEN}}
+          Publish_dir: ./
 
       - name: Instalar dependências
         run: |
